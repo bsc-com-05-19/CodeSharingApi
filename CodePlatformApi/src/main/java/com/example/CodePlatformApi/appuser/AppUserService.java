@@ -1,12 +1,20 @@
 package com.example.CodePlatformApi.appuser;
 
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
+@AllArgsConstructor
 public class AppUserService implements UserDetailsService {
+
+    private  final  static  String USER_NOT_FOUND = "user with email %s not found :/";
+    private  final UserRepository userRepository;
+
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepository.FindByEmail(email).orElseThrow(()-> new UsernameNotFoundException(String.format(USER_NOT_FOUND, email)));
     }
 }
