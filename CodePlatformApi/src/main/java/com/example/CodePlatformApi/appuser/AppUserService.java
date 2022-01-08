@@ -27,10 +27,12 @@ public class AppUserService implements UserDetailsService {
         boolean userExists = userRepository.findByEmail(appUser.getEmail()).isPresent();
 
         if(userExists){
-            throw  new IllegalStateException("email already exists :!")
+            throw  new IllegalStateException("email already exists :!");
         }
         String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
         appUser.setPassword(encodedPassword);
+
+        userRepository.save(appUser);
 
         return "A Okay! :)";
     }

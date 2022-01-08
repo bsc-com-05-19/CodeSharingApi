@@ -4,18 +4,19 @@ import com.example.CodePlatformApi.appuser.AppUser;
 import com.example.CodePlatformApi.appuser.AppUserRole;
 import com.example.CodePlatformApi.appuser.AppUserService;
 import lombok.AllArgsConstructor;
+import org.apache.naming.factory.SendMailFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
 public class RegistrationService {
 
-    private  static   AppUserService appUserService;
-   private static EmailValidator emailValidator;
+    private final  EmailValidator emailValidator;
+    private final  AppUserService appUserService;
 
-    public static String register(RegistrationRequest request) {
+    public String register(RegistrationRequest request) {
 
-        boolean isValidEmail = emailValidator .test(request.getEmail());
+        boolean isValidEmail = emailValidator.test(request.getEmail());
         if(!isValidEmail){
             throw  new IllegalStateException("An invalid email :/...");
         }
