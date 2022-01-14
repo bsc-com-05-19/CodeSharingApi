@@ -31,6 +31,7 @@ public class AppUser implements UserDetails {
     private  Long Id;
     private  String firstName;
     private  String lastName;
+    private String username;
     private  String email;
     private  String password;
     @Enumerated(EnumType.STRING)
@@ -66,12 +67,12 @@ public class AppUser implements UserDetails {
         return email;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstName(String firstName) {
+        return this.firstName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastName(String lastName) {
+        return this.lastName;
     }
 
     @Override
@@ -93,4 +94,5 @@ public class AppUser implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
+
 }

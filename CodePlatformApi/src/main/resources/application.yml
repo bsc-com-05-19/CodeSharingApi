@@ -32,3 +32,15 @@ spring:
           connectiontimeout: 5000
           timeout: 3000
           writetimeout: 5000
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 500KB
+      max-request-size: 200KB
+
+file:
+  upload-dir: \\C:\Users\USER\Documents\Storage\\\
+
+
+
