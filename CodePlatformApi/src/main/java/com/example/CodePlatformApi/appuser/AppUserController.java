@@ -1,14 +1,13 @@
 package com.example.CodePlatformApi.appuser;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AppUserController {
     private UserRepository userRepository;
-
-    public AppUserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @RequestMapping(value = "/api/v1/registration/users", method = RequestMethod.GET)
     public String getUser(){
