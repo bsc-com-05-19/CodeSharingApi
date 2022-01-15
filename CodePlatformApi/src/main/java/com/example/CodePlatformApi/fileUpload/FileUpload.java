@@ -26,6 +26,15 @@ public class FileUpload{
 
     private byte[] content;
 
+    public FileUpload(Long id, String filename, long size) {
+        this.id = id;
+        this.filename = filename;
+        this.size = size;
+    }
+
+    public FileUpload() {
+    }
+
     public Long getId() {
         return id;
     }
