@@ -1,7 +1,6 @@
 package com.example.CodePlatformApi.Registration;
 
 import com.example.CodePlatformApi.Registration.Token.ConfirmationToken;
-import com.example.CodePlatformApi.Registration.Token.ConfirmationTokenRepository;
 import com.example.CodePlatformApi.Registration.Token.ConfirmationTokenService;
 import com.example.CodePlatformApi.appuser.AppUser;
 import com.example.CodePlatformApi.appuser.AppUserRole;
@@ -9,7 +8,6 @@ import com.example.CodePlatformApi.appuser.AppUserService;
 import com.example.CodePlatformApi.email.EmailSender;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 

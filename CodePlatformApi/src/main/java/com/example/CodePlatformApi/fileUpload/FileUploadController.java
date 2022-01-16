@@ -1,6 +1,7 @@
 package com.example.CodePlatformApi.fileUpload;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.repository.query.Param;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -21,10 +22,9 @@ import java.util.Optional;
 @RestController
 public class FileUploadController {
 
-    @Autowired
     private FileUploadRepository repo;
 
-    @GetMapping(path = "/api/v1/registration/")
+    @GetMapping(path = "/api/v1/registration/home")
     public String ViewHome(Model model){
         List<FileUpload> fileUploadList  = repo.findAll();
         model.addAttribute("fileUploadList", fileUploadList);

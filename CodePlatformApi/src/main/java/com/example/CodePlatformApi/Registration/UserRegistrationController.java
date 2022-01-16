@@ -2,6 +2,7 @@ package com.example.CodePlatformApi.Registration;
 
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
