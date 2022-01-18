@@ -18,7 +18,7 @@ import java.util.UUID;
 public class AppUserService implements UserDetailsService {
     private final static String USER_NOT_FOUND_MSG = "user with email %s not found :/";
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+//    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private  final ConfirmationTokenService confirmationTokenService;
 
     @Override
@@ -33,8 +33,8 @@ public class AppUserService implements UserDetailsService {
         if (userExists) {
             throw new IllegalStateException("email already exists :!");
         }
-        String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
-        appUser.setPassword(encodedPassword);
+//        String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
+//        appUser.setPassword(encodedPassword);
 
         userRepository.save(appUser);
 
