@@ -4,6 +4,7 @@ import com.example.CodePlatformApi.Registration.Token.ConfirmationToken;
 import com.example.CodePlatformApi.Registration.Token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,11 +15,12 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
+@Primary
 @AllArgsConstructor
 public class AppUserService implements UserDetailsService {
     private final static String USER_NOT_FOUND_MSG = "user with email %s not found :/";
     private final UserRepository userRepository;
-//    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private  final ConfirmationTokenService confirmationTokenService;
 
     @Override
@@ -33,8 +35,8 @@ public class AppUserService implements UserDetailsService {
         if (userExists) {
             throw new IllegalStateException("email already exists :!");
         }
-//        String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
-//        appUser.setPassword(encodedPassword);
+        String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
+        appUser.setPassword(encodedPassword);
 
         userRepository.save(appUser);
 
