@@ -1,17 +1,11 @@
-package com.example.CodePlatformApi.fileUpload;
-
-import lombok.Getter;
-import lombok.Setter;
+package com.example.CodePlatformApi.FileUpload;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 @Table(name = "fileUpload")
-@Getter
-@Setter
-public class FileUpload{
+public class FileUpload {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +15,7 @@ public class FileUpload{
     private String filename;
     private long size;
 
-    @Column(name = "upload_time")
+    @Column(name = "uploadTime")
     private Date uploadTime;
 
     private byte[] content;
